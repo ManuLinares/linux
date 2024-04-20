@@ -991,10 +991,16 @@ static void mbox3_setup_48_24_magic(struct usb_device *dev)
 	/* min volume is: 0x0080 (shown in little endian form) */
 
 
-	/* Load 48000Hz rate into buffer */
-	u8 com_buff[4] = {0x80, 0xbb, 0x00, 0x00};
+	/* Load 96000Hz rate into buffer */
+	u32 rate = 96000;
+	u8 com_buff[4];
 
-	/* Set 48000Hz sample rate */
+	com_buff[0] = (rate >> 0) & 0xFF; // Least significant byte
+	com_buff[1] = (rate >> 8) & 0xFF;
+	com_buff[2] = (rate >> 16) & 0xFF;
+	com_buff[3] = (rate >> 24) & 0xFF; // Most significant byte
+		
+	/* Set 96000Hz sample rate */
 	snd_usb_ctl_msg(dev, usb_sndctrlpipe(dev, 0),
 			0x01, 0x21, 0x0100, 0x0001, &com_buff, 4);  //Is this really needed?
 	snd_usb_ctl_msg(dev, usb_sndctrlpipe(dev, 0),
