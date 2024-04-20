@@ -3021,12 +3021,12 @@ YAMAHA_DEVICE(0x7010, "UB99"),
 					.endpoint = 0x01,
 					.ep_attr = USB_ENDPOINT_XFER_ISOC |
 						USB_ENDPOINT_SYNC_ASYNC,
-					.rates = SNDRV_PCM_RATE_48000,
-					.rate_min = 48000,
-					.rate_max = 48000,
+					.rates = SNDRV_PCM_RATE_96000,
+					.rate_min = 96000,
+					.rate_max = 96000,
 					.nr_rates = 1,
 					.rate_table = (unsigned int[]) {
-						48000
+						96000
 					}
 				}
 			},
@@ -3044,12 +3044,12 @@ YAMAHA_DEVICE(0x7010, "UB99"),
 					.ep_attr = USB_ENDPOINT_XFER_ISOC |
 						USB_ENDPOINT_SYNC_ASYNC,
 					.maxpacksize = 0x009c,
-					.rates = SNDRV_PCM_RATE_48000,
-					.rate_min = 48000,
-					.rate_max = 48000,
+					.rates = SNDRV_PCM_RATE_96000,
+					.rate_min = 96000,
+					.rate_max = 96000,
 					.nr_rates = 1,
 					.rate_table = (unsigned int[]) {
-						48000
+						96000
 					}
 				}
 			},
